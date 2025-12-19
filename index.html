@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Studio - The Lab for the Next Era of Music</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-mono {
+            font-family: 'Space Mono', monospace;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+    
+    <!-- Language Selector -->
+    <div class="fixed top-4 right-4 z-50">
+        <div class="bg-slate-800/80 backdrop-blur-lg rounded-xl border border-slate-700 p-2 shadow-lg">
+            <select id="languageSelector" class="bg-transparent text-slate-200 text-sm font-mono cursor-pointer focus:outline-none px-2 py-1">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+                <option value="zh">繁體中文</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-900/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-900/20 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-4xl w-full text-center relative z-10 space-y-8 animate-in fade-in zoom-in duration-700">
+            <!-- Logo/Icon -->
+            <div class="flex justify-center mb-8">
+                <img src="images/octopus-logo.png" alt="Octopus Logo" class="w-32 h-32 drop-shadow-2xl">
+            </div>
+            
+            <!-- Main Heading -->
+            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent" data-i18n="heroTitle">
+                Diamond Studio
+            </h1>
+            
+            <!-- Tagline -->
+            <p class="text-xl md:text-2xl text-slate-300 font-light" data-i18n="heroTagline">
+                The lab for the next era of music.
+            </p>
+            
+            <!-- Description -->
+            <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm md:text-base" data-i18n="heroDesc1">
+                The music industry is currently dominated by gatekeepers and algorithms that value volume over soul. At Diamond Studio, we believe there is a better way to connect music, AI, and people.
+            </p>
+            
+            <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm md:text-base" data-i18n="heroDesc2">
+                We don't build platforms based on assumptions. We run <span class="text-cyan-400 font-semibold">public experiments</span> to understand how fans actually listen, judge, and support the music they love.
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="pt-4">
+                <a href="#octopus" class="inline-block bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-cyan-900/20 transform transition-all hover:scale-[1.02] active:scale-[0.98]" data-i18n="ctaExplore">
+                    Explore Our Experiments
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Experiment: Octopus -->
+    <section id="octopus" class="py-20 px-4 relative">
+        <div class="max-w-5xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <p class="text-xs font-bold uppercase tracking-wider text-cyan-500 mb-3 font-mono" data-i18n="currentExperiment">Current Experiment</p>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4" data-i18n="octopusTitle">
+                    Octopus
+                </h2>
+                <p class="text-xl text-purple-400 font-mono italic" data-i18n="octopusSubtitle">
+                    Can you hear the ghost in the machine?
+                </p>
+            </div>
+            
+            <!-- Experiment Card -->
+            <div class="bg-slate-800/50 backdrop-blur-lg p-8 md:p-12 rounded-3xl shadow-2xl border border-slate-700 relative overflow-hidden">
+                <!-- Top Accent Bar -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                
+                <div class="space-y-6">
+                    <p class="text-slate-300 leading-relaxed" data-i18n="octopusDesc1">
+                        As AI transforms music creation, we're asking a fundamental question: <span class="text-white font-semibold">Does it matter who—or what—is behind the music?</span>
+                    </p>
+                    
+                    <p class="text-slate-400 leading-relaxed" data-i18n="octopusDesc2">
+                        Octopus is a listening game designed to test human perception and bias. Each round, you'll hear a track and guess whether it was created by a human or AI. Sharpen your ears, trust your instincts, and see how deep you can dive.
+                    </p>
+                    
+                    <!-- CTA -->
+                    <div class="pt-4">
+                        <a href="https://octopus.diamondstudio.app" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-cyan-900/20 transform transition-all hover:scale-[1.02] active:scale-[0.98]" data-i18n="playGame">
+                            <span>🐙</span>
+                            <span>Play the Octopus Game</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolutionary Hall of Fame -->
+    <section class="py-20 px-4 bg-slate-950/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4" data-i18n="hallOfFame">
+                    🏆 The Evolutionary Hall of Fame
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto" data-i18n="hallOfFameDesc">
+                    This isn't just a leaderboard; it's a journey from the surface to the deep. Every correct guess helps you evolve your status:
+                </p>
+            </div>
+            
+            <!-- Tiers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- PLANKTON -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all">
+                    <div class="text-4xl mb-3 text-center">🦠</div>
+                    <div class="text-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-700 text-slate-400 inline-block" data-i18n="tierPlankton">
+                            Plankton
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 text-center" data-i18n="tierPlanktonDesc">
+                        Floating is just the beginning.
+                    </p>
+                </div>
+                
+                <!-- INKLING -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all">
+                    <div class="text-4xl mb-3 text-center">🦑</div>
+                    <div class="text-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-700 text-slate-400 inline-block" data-i18n="tierInkling">
+                            Inkling
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 text-center" data-i18n="tierInklingDesc">
+                        Start making your mark on the ocean.
+                    </p>
+                </div>
+                
+                <!-- TENTACLE -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-purple-500/50 hover:border-purple-500 transition-all">
+                    <div class="text-4xl mb-3 text-center">🐙</div>
+                    <div class="text-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-500/20 text-purple-400 border border-purple-500/50 inline-block" data-i18n="tierTentacle">
+                            Tentacle
+                        </span>
+                    </div>
+                    <p class="text-xs text-purple-300 text-center" data-i18n="tierTentacleDesc">
+                        Strengthen your grip on the truth.
+                    </p>
+                </div>
+                
+                <!-- KRAKEN -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-red-500/50 hover:border-red-500 transition-all">
+                    <div class="text-4xl mb-3 text-center">🔱</div>
+                    <div class="text-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/50 inline-block" data-i18n="tierKraken">
+                            Kraken
+                        </span>
+                    </div>
+                    <p class="text-xs text-red-300 text-center" data-i18n="tierKrakenDesc">
+                        Become a legend written in the deep.
+                    </p>
+                </div>
+                
+                <!-- POSEIDON -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-yellow-500/50 hover:border-yellow-500 transition-all relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-yellow-400"></div>
+                    <div class="text-4xl mb-3 text-center">👑</div>
+                    <div class="text-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-yellow-500/20 text-yellow-400 border border-yellow-500/50 inline-block" data-i18n="tierPoseidon">
+                            Poseidon
+                        </span>
+                    </div>
+                    <p class="text-xs text-yellow-300 text-center font-semibold" data-i18n="tierPoseidonDesc">
+                        Rule the seven seas as a True Master of Sound.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4" data-i18n="philosophy">
+                    Our Philosophy
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Experiments over Algorithms -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-all group">
+                    <div class="text-5xl mb-4">🧪</div>
+                    <h3 class="text-xl font-bold text-white mb-3 uppercase tracking-tight" data-i18n="philoTitle1">
+                        Experiments over Algorithms
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="philoDesc1">
+                        Traditional platforms tell you what to listen to. We want to know <em>why</em> you listen. Our experiments help us build tools that prioritize genuine human engagement over empty stream counts.
+                    </p>
+                </div>
+                
+                <!-- Redefining Value -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 hover:border-purple-500/50 transition-all group">
+                    <div class="text-5xl mb-4">💎</div>
+                    <h3 class="text-xl font-bold text-white mb-3 uppercase tracking-tight" data-i18n="philoTitle2">
+                        Redefining Value
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="philoDesc2">
+                        Whether music is created by a human or assisted by AI, we believe its worth should be determined by the energy of the fans. We are exploring new ways to make that support visible and meaningful.
+                    </p>
+                </div>
+                
+                <!-- What's Next -->
+                <div class="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 hover:border-yellow-500/50 transition-all group">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold text-white mb-3 uppercase tracking-tight" data-i18n="philoTitle3">
+                        What's Next
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="philoDesc3">
+                        Diamond Studio is the testing ground. The insights and community we build here will power our upcoming flagship platform—a space designed to disrupt the status quo and give independent creators the influence they deserve.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join the Studio -->
+    <section class="py-20 px-4 relative overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="absolute top-[-20%] right-[-10%] w-[40%] h-[80%] bg-cyan-900/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-20%] left-[-10%] w-[40%] h-[80%] bg-purple-900/20 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-3xl mx-auto relative z-10">
+            <div class="bg-slate-800/50 backdrop-blur-lg p-12 rounded-3xl shadow-2xl border border-slate-700 relative overflow-hidden text-center">
+                <!-- Top Accent Bar -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-purple-500"></div>
+                
+                <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4" data-i18n="joinTitle">
+                    Join the Studio
+                </h2>
+                
+                <p class="text-slate-300 mb-8 text-lg" data-i18n="joinDesc">
+                    Help us map the future of musical value.
+                </p>
+                
+                <div class="space-y-4 mb-8 text-left max-w-md mx-auto">
+                    <div class="flex items-start gap-3">
+                        <span class="text-cyan-400 text-xl">✓</span>
+                        <p class="text-slate-300" data-i18n="joinPoint1">Test your ears in the <strong>Octopus Game</strong>.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-purple-400 text-xl">✓</span>
+                        <p class="text-slate-300" data-i18n="joinPoint2">Climb the <strong>Tiers</strong> to prove your perception.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-yellow-400 text-xl">✓</span>
+                        <p class="text-slate-300" data-i18n="joinPoint3">Stay tuned as we move from <strong>experiment to ecosystem</strong>.</p>
+                    </div>
+                </div>
+                
+                <a href="https://octopus.diamondstudio.app" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-cyan-900/20 transform transition-all hover:scale-[1.02] active:scale-[0.98] text-lg" data-i18n="playGame">
+                    <span>👉</span>
+                    <span>Play the Octopus Game</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="https://octopus.diamondstudio.app" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors font-mono text-sm" data-i18n="footerGame">
+                    Octopus Game
+                </a>
+                <span class="text-slate-700">|</span>
+                <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors font-mono text-sm">
+                    Twitter
+                </a>
+                <span class="text-slate-700">|</span>
+                <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors font-mono text-sm">
+                    Discord
+                </a>
+            </div>
+            <p class="text-slate-500 text-sm font-mono">
+                © 2025 Diamond Studio
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                heroTitle: "Diamond Studio",
+                heroTagline: "The lab for the next era of music.",
+                heroDesc1: "The music industry is currently dominated by gatekeepers and algorithms that value volume over soul. At Diamond Studio, we believe there is a better way to connect music, AI, and people.",
+                heroDesc2: "We don't build platforms based on assumptions. We run <span class='text-cyan-400 font-semibold'>public experiments</span> to understand how fans actually listen, judge, and support the music they love.",
+                ctaExplore: "Explore Our Experiments",
+                currentExperiment: "Current Experiment",
+                octopusTitle: "Octopus",
+                octopusSubtitle: "Can you hear the ghost in the machine?",
+                octopusDesc1: "As AI transforms music creation, we're asking a fundamental question: <span class='text-white font-semibold'>Does it matter who—or what—is behind the music?</span>",
+                octopusDesc2: "Octopus is a listening game designed to test human perception and bias. Each round, you'll hear a track and guess whether it was created by a human or AI. Sharpen your ears, trust your instincts, and see how deep you can dive.",
+                playGame: "Play the Octopus Game",
+                hallOfFame: "🏆 The Evolutionary Hall of Fame",
+                hallOfFameDesc: "This isn't just a leaderboard; it's a journey from the surface to the deep. Every correct guess helps you evolve your status:",
+                tierPlankton: "Plankton",
+                tierPlanktonDesc: "Floating is just the beginning.",
+                tierInkling: "Inkling",
+                tierInklingDesc: "Start making your mark on the ocean.",
+                tierTentacle: "Tentacle",
+                tierTentacleDesc: "Strengthen your grip on the truth.",
+                tierKraken: "Kraken",
+                tierKrakenDesc: "Become a legend written in the deep.",
+                tierPoseidon: "Poseidon",
+                tierPoseidonDesc: "Rule the seven seas as a True Master of Sound.",
+                philosophy: "Our Philosophy",
+                philoTitle1: "Experiments over Algorithms",
+                philoDesc1: "Traditional platforms tell you what to listen to. We want to know <em>why</em> you listen. Our experiments help us build tools that prioritize genuine human engagement over empty stream counts.",
+                philoTitle2: "Redefining Value",
+                philoDesc2: "Whether music is created by a human or assisted by AI, we believe its worth should be determined by the energy of the fans. We are exploring new ways to make that support visible and meaningful.",
+                philoTitle3: "What's Next",
+                philoDesc3: "Diamond Studio is the testing ground. The insights and community we build here will power our upcoming flagship platform—a space designed to disrupt the status quo and give independent creators the influence they deserve.",
+                joinTitle: "Join the Studio",
+                joinDesc: "Help us map the future of musical value.",
+                joinPoint1: "Test your ears in the <strong>Octopus Game</strong>.",
+                joinPoint2: "Climb the <strong>Tiers</strong> to prove your perception.",
+                joinPoint3: "Stay tuned as we move from <strong>experiment to ecosystem</strong>.",
+                footerGame: "Octopus Game"
+            },
+            ja: {
+                heroTitle: "Diamond Studio",
+                heroTagline: "音楽の次の時代のための研究所",
+                heroDesc1: "音楽業界は現在、魂よりも量を重視するゲートキーパーとアルゴリズムに支配されています。Diamond Studioでは、音楽、AI、人々をつなぐより良い方法があると信じています。",
+                heroDesc2: "私たちは憶測に基づいてプラットフォームを構築しません。ファンが実際にどのように音楽を聴き、判断し、サポートするかを理解するために<span class='text-cyan-400 font-semibold'>公開実験</span>を行います。",
+                ctaExplore: "実験を探索する",
+                currentExperiment: "現在の実験",
+                octopusTitle: "Octopus",
+                octopusSubtitle: "機械の中の幽霊が聞こえますか？",
+                octopusDesc1: "AIが音楽制作を変革する中、私たちは根本的な質問を投げかけています：<span class='text-white font-semibold'>音楽の背後にいるのが誰か、あるいは何かは重要なのでしょうか？</span>",
+                octopusDesc2: "Octopusは、人間の知覚とバイアスをテストするために設計されたリスニングゲームです。各ラウンドでトラックを聴き、それが人間によって作成されたものかAIによって作成されたものかを推測します。耳を研ぎ澄まし、直感を信じて、どこまで深く潜れるか試してみてください。",
+                playGame: "Octopusゲームをプレイ",
+                hallOfFame: "🏆 進化の殿堂",
+                hallOfFameDesc: "これは単なるリーダーボードではなく、表面から深海への旅です。正解するたびにステータスが進化します：",
+                tierPlankton: "プランクトン",
+                tierPlanktonDesc: "漂うことは始まりに過ぎません。",
+                tierInkling: "インクリング",
+                tierInklingDesc: "海にあなたの痕跡を残し始めましょう。",
+                tierTentacle: "触手",
+                tierTentacleDesc: "真実への握力を強化しましょう。",
+                tierKraken: "クラーケン",
+                tierKrakenDesc: "深海に刻まれる伝説になりましょう。",
+                tierPoseidon: "ポセイドン",
+                tierPoseidonDesc: "音の真のマスターとして七つの海を支配しましょう。",
+                philosophy: "私たちの理念",
+                philoTitle1: "アルゴリズムより実験",
+                philoDesc1: "従来のプラットフォームは何を聴くべきかを指示します。私たちは<em>なぜ</em>聴くのかを知りたいのです。私たちの実験は、空虚なストリーム数よりも真の人間のエンゲージメントを優先するツールの構築を支援します。",
+                philoTitle2: "価値の再定義",
+                philoDesc2: "音楽が人間によって作成されたものであれ、AIの支援を受けたものであれ、その価値はファンのエネルギーによって決定されるべきだと私たちは信じています。そのサポートを可視化し、意味のあるものにする新しい方法を模索しています。",
+                philoTitle3: "次のステップ",
+                philoDesc3: "Diamond Studioは実験場です。ここで構築する洞察とコミュニティは、現状を打破し、独立したクリエイターに彼らにふさわしい影響力を与えるように設計された、私たちの今後のフラッグシッププラットフォームの原動力となります。",
+                joinTitle: "スタジオに参加",
+                joinDesc: "音楽的価値の未来をマッピングするのを手伝ってください。",
+                joinPoint1: "<strong>Octopusゲーム</strong>で耳を試してください。",
+                joinPoint2: "<strong>ティア</strong>を登って知覚を証明してください。",
+                joinPoint3: "<strong>実験からエコシステム</strong>への移行にご期待ください。",
+                footerGame: "Octopusゲーム"
+            },
+            ko: {
+                heroTitle: "Diamond Studio",
+                heroTagline: "음악의 다음 시대를 위한 연구소",
+                heroDesc1: "음악 산업은 현재 영혼보다 볼륨을 중시하는 게이트키퍼와 알고리즘에 의해 지배되고 있습니다. Diamond Studio는 음악, AI, 사람들을 연결하는 더 나은 방법이 있다고 믿습니다.",
+                heroDesc2: "우리는 가정에 기반한 플랫폼을 구축하지 않습니다. 팬들이 실제로 어떻게 듣고, 판단하고, 사랑하는 음악을 지원하는지 이해하기 위해 <span class='text-cyan-400 font-semibold'>공개 실험</span>을 실행합니다.",
+                ctaExplore: "실험 탐색하기",
+                currentExperiment: "현재 실험",
+                octopusTitle: "Octopus",
+                octopusSubtitle: "기계 속의 유령이 들리시나요?",
+                octopusDesc1: "AI가 음악 제작을 변화시키면서 우리는 근본적인 질문을 던집니다: <span class='text-white font-semibold'>음악 뒤에 있는 것이 누구인지 또는 무엇인지가 중요한가요?</span>",
+                octopusDesc2: "Octopus는 인간의 인식과 편견을 테스트하도록 설계된 청취 게임입니다. 각 라운드에서 트랙을 듣고 그것이 인간에 의해 만들어졌는지 AI에 의해 만들어졌는지 추측합니다. 귀를 날카롭게 하고, 직감을 믿고, 얼마나 깊이 잠수할 수 있는지 확인하세요.",
+                playGame: "Octopus 게임 플레이",
+                hallOfFame: "🏆 진화의 명예의 전당",
+                hallOfFameDesc: "이것은 단순한 리더보드가 아니라 표면에서 깊은 곳으로의 여정입니다. 올바른 추측을 할 때마다 상태가 진화합니다:",
+                tierPlankton: "플랑크톤",
+                tierPlanktonDesc: "떠다니는 것은 시작에 불과합니다.",
+                tierInkling: "잉클링",
+                tierInklingDesc: "바다에 흔적을 남기기 시작하세요.",
+                tierTentacle: "촉수",
+                tierTentacleDesc: "진실에 대한 그립을 강화하세요.",
+                tierKraken: "크라켄",
+                tierKrakenDesc: "깊은 곳에 새겨진 전설이 되세요.",
+                tierPoseidon: "포세이돈",
+                tierPoseidonDesc: "진정한 사운드의 마스터로서 칠해를 지배하세요.",
+                philosophy: "우리의 철학",
+                philoTitle1: "알고리즘보다 실험",
+                philoDesc1: "전통적인 플랫폼은 무엇을 들을지 알려줍니다. 우리는 <em>왜</em> 듣는지 알고 싶습니다. 우리의 실험은 빈 스트림 수보다 진정한 인간 참여를 우선시하는 도구를 구축하는 데 도움이 됩니다.",
+                philoTitle2: "가치 재정의",
+                philoDesc2: "음악이 인간에 의해 만들어졌든 AI의 도움을 받았든, 우리는 그 가치가 팬들의 에너지에 의해 결정되어야 한다고 믿습니다. 우리는 그 지원을 가시적이고 의미 있게 만드는 새로운 방법을 탐구하고 있습니다.",
+                philoTitle3: "다음 단계",
+                philoDesc3: "Diamond Studio는 실험장입니다. 여기서 구축하는 통찰력과 커뮤니티는 현상 유지를 깨고 독립 창작자들에게 마땅한 영향력을 제공하도록 설계된 우리의 향후 플래그십 플랫폼에 동력을 제공할 것입니다.",
+                joinTitle: "스튜디오에 참여하세요",
+                joinDesc: "음악적 가치의 미래를 매핑하는 데 도움을 주세요.",
+                joinPoint1: "<strong>Octopus 게임</strong>에서 귀를 테스트하세요.",
+                joinPoint2: "<strong>티어</strong>를 올라가며 인식을 증명하세요.",
+                joinPoint3: "<strong>실험에서 생태계</strong>로의 전환을 기대하세요.",
+                footerGame: "Octopus 게임"
+            },
+            zh: {
+                heroTitle: "Diamond Studio",
+                heroTagline: "下一個音樂時代的實驗室",
+                heroDesc1: "音樂產業目前由重視數量而非靈魂的守門人和演算法主導。在 Diamond Studio，我們相信有更好的方式來連接音樂、AI 和人們。",
+                heroDesc2: "我們不會基於假設來建立平台。我們進行<span class='text-cyan-400 font-semibold'>公開實驗</span>來了解粉絲實際如何聆聽、判斷和支持他們喜愛的音樂。",
+                ctaExplore: "探索我們的實驗",
+                currentExperiment: "當前實驗",
+                octopusTitle: "Octopus",
+                octopusSubtitle: "你能聽到機器中的幽靈嗎？",
+                octopusDesc1: "隨著 AI 改變音樂創作，我們提出一個根本性的問題：<span class='text-white font-semibold'>音樂背後是誰——或什麼——重要嗎？</span>",
+                octopusDesc2: "Octopus 是一款旨在測試人類感知和偏見的聆聽遊戲。每一輪您將聽到一首曲目並猜測它是由人類還是 AI 創作的。磨練您的耳朵，相信您的直覺，看看您能潛多深。",
+                playGame: "玩 Octopus 遊戲",
+                hallOfFame: "🏆 進化名人堂",
+                hallOfFameDesc: "這不僅僅是一個排行榜；這是一段從表面到深處的旅程。每次正確猜測都會幫助您進化狀態：",
+                tierPlankton: "浮游生物",
+                tierPlanktonDesc: "漂浮只是開始。",
+                tierInkling: "小墨魚",
+                tierInklingDesc: "開始在海洋上留下您的印記。",
+                tierTentacle: "觸手",
+                tierTentacleDesc: "加強您對真相的掌握。",
+                tierKraken: "海怪",
+                tierKrakenDesc: "成為深海中書寫的傳奇。",
+                tierPoseidon: "波塞冬",
+                tierPoseidonDesc: "作為真正的聲音大師統治七海。",
+                philosophy: "我們的理念",
+                philoTitle1: "實驗勝於演算法",
+                philoDesc1: "傳統平台告訴您要聽什麼。我們想知道您<em>為什麼</em>聽。我們的實驗幫助我們建立優先考慮真正人類參與而非空洞串流數字的工具。",
+                philoTitle2: "重新定義價值",
+                philoDesc2: "無論音樂是由人類創作還是由 AI 輔助，我們相信其價值應該由粉絲的能量決定。我們正在探索新的方式使這種支持可見且有意義。",
+                philoTitle3: "下一步",
+                philoDesc3: "Diamond Studio 是試驗場。我們在這裡建立的洞察力和社群將為我們即將推出的旗艦平台提供動力——一個旨在打破現狀並賦予獨立創作者應有影響力的空間。",
+                joinTitle: "加入工作室",
+                joinDesc: "幫助我們描繪音樂價值的未來。",
+                joinPoint1: "在<strong>Octopus 遊戲</strong>中測試您的耳朵。",
+                joinPoint2: "攀登<strong>等級</strong>以證明您的感知。",
+                joinPoint3: "敬請期待我們從<strong>實驗到生態系統</strong>的轉變。",
+                footerGame: "Octopus 遊戲"
+            }
+        };
+
+        // Get elements
+        const elements = {
+            heroTitle: document.querySelector('[data-i18n="heroTitle"]'),
+            heroTagline: document.querySelector('[data-i18n="heroTagline"]'),
+            heroDesc1: document.querySelector('[data-i18n="heroDesc1"]'),
+            heroDesc2: document.querySelector('[data-i18n="heroDesc2"]'),
+            ctaExplore: document.querySelector('[data-i18n="ctaExplore"]'),
+            currentExperiment: document.querySelector('[data-i18n="currentExperiment"]'),
+            octopusTitle: document.querySelector('[data-i18n="octopusTitle"]'),
+            octopusSubtitle: document.querySelector('[data-i18n="octopusSubtitle"]'),
+            octopusDesc1: document.querySelector('[data-i18n="octopusDesc1"]'),
+            octopusDesc2: document.querySelector('[data-i18n="octopusDesc2"]'),
+            playGame: document.querySelectorAll('[data-i18n="playGame"]'),
+            hallOfFame: document.querySelector('[data-i18n="hallOfFame"]'),
+            hallOfFameDesc: document.querySelector('[data-i18n="hallOfFameDesc"]'),
+            tierPlankton: document.querySelector('[data-i18n="tierPlankton"]'),
+            tierPlanktonDesc: document.querySelector('[data-i18n="tierPlanktonDesc"]'),
+            tierInkling: document.querySelector('[data-i18n="tierInkling"]'),
+            tierInklingDesc: document.querySelector('[data-i18n="tierInklingDesc"]'),
+            tierTentacle: document.querySelector('[data-i18n="tierTentacle"]'),
+            tierTentacleDesc: document.querySelector('[data-i18n="tierTentacleDesc"]'),
+            tierKraken: document.querySelector('[data-i18n="tierKraken"]'),
+            tierKrakenDesc: document.querySelector('[data-i18n="tierKrakenDesc"]'),
+            tierPoseidon: document.querySelector('[data-i18n="tierPoseidon"]'),
+            tierPoseidonDesc: document.querySelector('[data-i18n="tierPoseidonDesc"]'),
+            philosophy: document.querySelector('[data-i18n="philosophy"]'),
+            philoTitle1: document.querySelector('[data-i18n="philoTitle1"]'),
+            philoDesc1: document.querySelector('[data-i18n="philoDesc1"]'),
+            philoTitle2: document.querySelector('[data-i18n="philoTitle2"]'),
+            philoDesc2: document.querySelector('[data-i18n="philoDesc2"]'),
+            philoTitle3: document.querySelector('[data-i18n="philoTitle3"]'),
+            philoDesc3: document.querySelector('[data-i18n="philoDesc3"]'),
+            joinTitle: document.querySelector('[data-i18n="joinTitle"]'),
+            joinDesc: document.querySelector('[data-i18n="joinDesc"]'),
+            joinPoint1: document.querySelector('[data-i18n="joinPoint1"]'),
+            joinPoint2: document.querySelector('[data-i18n="joinPoint2"]'),
+            joinPoint3: document.querySelector('[data-i18n="joinPoint3"]'),
+            footerGame: document.querySelector('[data-i18n="footerGame"]')
+        };
+
+        // Change language function
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            
+            elements.heroTitle.textContent = t.heroTitle;
+            elements.heroTagline.textContent = t.heroTagline;
+            elements.heroDesc1.innerHTML = t.heroDesc1;
+            elements.heroDesc2.innerHTML = t.heroDesc2;
+            elements.ctaExplore.textContent = t.ctaExplore;
+            elements.currentExperiment.textContent = t.currentExperiment;
+            elements.octopusTitle.textContent = t.octopusTitle;
+            elements.octopusSubtitle.textContent = t.octopusSubtitle;
+            elements.octopusDesc1.innerHTML = t.octopusDesc1;
+            elements.octopusDesc2.innerHTML = t.octopusDesc2;
+            elements.playGame.forEach(el => {
+                const emoji = el.querySelector('span');
+                if (emoji) {
+                    el.innerHTML = `<span>🐙</span><span>${t.playGame}</span>`;
+                } else {
+                    el.innerHTML = `<span>👉</span><span>${t.playGame}</span>`;
+                }
+            });
+            elements.hallOfFame.textContent = t.hallOfFame;
+            elements.hallOfFameDesc.textContent = t.hallOfFameDesc;
+            elements.tierPlankton.textContent = t.tierPlankton;
+            elements.tierPlanktonDesc.textContent = t.tierPlanktonDesc;
+            elements.tierInkling.textContent = t.tierInkling;
+            elements.tierInklingDesc.textContent = t.tierInklingDesc;
+            elements.tierTentacle.textContent = t.tierTentacle;
+            elements.tierTentacleDesc.textContent = t.tierTentacleDesc;
+            elements.tierKraken.textContent = t.tierKraken;
+            elements.tierKrakenDesc.textContent = t.tierKrakenDesc;
+            elements.tierPoseidon.textContent = t.tierPoseidon;
+            elements.tierPoseidonDesc.textContent = t.tierPoseidonDesc;
+            elements.philosophy.textContent = t.philosophy;
+            elements.philoTitle1.textContent = t.philoTitle1;
+            elements.philoDesc1.innerHTML = t.philoDesc1;
+            elements.philoTitle2.textContent = t.philoTitle2;
+            elements.philoDesc2.innerHTML = t.philoDesc2;
+            elements.philoTitle3.textContent = t.philoTitle3;
+            elements.philoDesc3.innerHTML = t.philoDesc3;
+            elements.joinTitle.textContent = t.joinTitle;
+            elements.joinDesc.textContent = t.joinDesc;
+            elements.joinPoint1.innerHTML = t.joinPoint1;
+            elements.joinPoint2.innerHTML = t.joinPoint2;
+            elements.joinPoint3.innerHTML = t.joinPoint3;
+            elements.footerGame.textContent = t.footerGame;
+
+            // Save to localStorage
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // Event listener
+        document.getElementById('languageSelector').addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Load saved language on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            document.getElementById('languageSelector').value = savedLang;
+            if (savedLang !== 'en') {
+                changeLanguage(savedLang);
+            }
+        });
+    </script>
+
+</body>
+</html>
